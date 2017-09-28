@@ -23,15 +23,14 @@ public class callingMonsters
 				list.add(new monster("Sleepy Gary", "Remember that one time I helped you fall asleep Morty?"));
 				list.add(new monster("Tinkles", "Remember that one time that me and your sister summer played in the field of cotten candy?"));
 				list.add(new monster("Uncle Steve","Hey man I have been living with you for years!"));
-				list.add(new monster("William Shakespeare", ""));
-				list.add(new monster("Mr Poopybutthole"));
-				list.add(new monster("Rick"));
-				list.add(new monster("Beth"));
-				list.add(new monster("Jerry"));
-				list.add(new monster("Summmer"));
-				list.add(new monster("Archer"));
-				list.add(new monster("Lana"));
-				list.add(new monster("Pickle Rick"));
+				list.add(new monster("William Shakespeare", "Remember that poem I helped you with??"));
+				list.add(new monster("Mr Poopybutthole", "Remember that one time that we got stuck in the elevator after we watched the hulk??"));
+				list.add(new monster("Rick", "Hey man if we all die I'm moving dimensions."));
+				list.add(new monster("Beth", "I left you at the mall that one time and didn't come back to get you."));
+				list.add(new monster("Jerry", "Me and your mother Beth divorced."));
+				list.add(new monster("Summmer", "Remember the one time I punched you for being in my room?"));
+				list.add(new monster("Archer", "Rememeber that one time I accidently shot you?"));
+				list.add(new monster("Pickle Rick", "IM PICKLE RICK!!!!!!!"));
 		}
 	}
 
