@@ -10,6 +10,12 @@ public class theMaze
   private char[][] grid; 
   private Cell[][] cells; 
   private Random random = new Random(); 
+  public static void main(String[] args) 
+	  {
+      theMaze maze = new theMaze(20);
+      maze.solve();
+      maze.draw();
+	  }
   public theMaze(int aDimension) 
 	  {
       this(aDimension, aDimension);
@@ -56,10 +62,10 @@ public class theMaze
 	        this.wall = isWall;
 	    }
 	    void addNeighbor(Cell other) {
-	        if (!this.neighbors.contains(other)) { // avoid duplicates
+	        if (!this.neighbors.contains(other)) { 
 	            this.neighbors.add(other);
 	        }
-	        if (!other.neighbors.contains(this)) { // avoid duplicates
+	        if (!other.neighbors.contains(this)) { 
 	            other.neighbors.add(this);
 	        }
 	    }
@@ -69,30 +75,21 @@ public class theMaze
 	    boolean isCellRightNeighbor() {
 	        return this.neighbors.contains(new Cell(this.x + 1, this.y));
 	    }
-	    @Override
 	    public String toString() {
 	        return String.format("Cell(%s, %s)", x, y);
 	    }
-	    @Override
+	   
 	    public boolean equals(Object other) {
 	        if (!(other instanceof Cell)) return false;
 	        Cell otherCell = (Cell) other;
 	        return (this.x == otherCell.x && this.y == otherCell.y);
 	    }
-	    @Override
+	 
 	    public int hashCode() {
-	        return this.x + this.y * 256;
+	        return this.x + this.y * 25;
 	    }
 	  }
-	  private void generateMaze() 
-		  {
-	      generateMaze(0, 0);
-		  }
-	  private void generateMaze(int x, int y) 
-		  {
-	      generateMaze(getCell(x, y)); 
-		  }
-	  private void generateMaze(Cell startAt) 
+	  public void generateMaze(Cell startAt) 
 		  {
 	      if (startAt == null) return;
 	      startAt.open = false; 
@@ -127,15 +124,9 @@ public class theMaze
 	      }
 	  }
 	  public Cell getCell(int x, int y) 
-		  {
-	      try 
-	    	  {
-	          return cells[x][y];
-	    	  } 
-	      catch (ArrayIndexOutOfBoundsException e) 
-	    	  { 
-	          return null;
-	    	  }
+		  { 
+			 return cells[x][y];
+	    	 
 		  }
 
 	  public void solve() 
@@ -212,7 +203,7 @@ public class theMaze
 		  }
 	  public void updateGrid() 
 		  {
-	      char backChar = ' ', wallChar = '|', cellChar = ' ', pathChar = '*';
+	      char backChar = '_', wallChar = '|', cellChar = ' ', pathChar = '*';
 	      for (int x = 0; x < gridDimensionX; x ++) 
 	    	  {
 	          for (int y = 0; y < gridDimensionY; y ++) 
@@ -247,7 +238,7 @@ public class theMaze
 	                      else 
 	                    	  {
 	                          grid[gridX][gridY + 1] = cellChar;
-	                          grid[gridX + 1][gridY + 1] = backChar;
+	                          grid[gridX + 2][gridY + 2] = backChar;
 	                          grid[gridX - 1][gridY + 1] = backChar;
 	                    	  }
 	                  if (current.isCellRightNeighbor())
@@ -286,10 +277,9 @@ public class theMaze
 	  public void draw()
 		  {
 	      System.out.print(this);
-		  }@Override
+		  }
 	  public String toString() 
 		{
-	      updateGrid();
 	      String output = "";
 	      for (int y = 0; y < gridDimensionY; y++) 
 	    	  {
@@ -302,12 +292,5 @@ public class theMaze
 	      return output;
 		}
 
-	 
-	  public static void main(String[] args) 
-		  {
-	      theMaze maze = new theMaze(20);
-	      maze.solve();
-	      maze.draw();
-		  }
 }
 
