@@ -4,6 +4,12 @@ public class introductionStuff
 	{
 		public static void main(String[] args)
 		{
+		getStarted();
+		
+		}
+		
+		private static void getStarted()
+		{
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Hey Morty its rick you fell asleep and let some parasites come to earth you were in the maze I trapped them in would you like to get out and live?");
 		String guess =userInput.nextLine();
