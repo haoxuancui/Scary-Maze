@@ -7,7 +7,7 @@ public class randomCharacter
 	    private ArrayList<monster> catalogue;
 	public static void  anyItem()
 	    {
-	    	int i = new Random().nextInt(monster);
-	    	System.out.println(i);
+	    	//int i = new Random().nextInt(monster);
+	    	//System.out.println(i);
 	    }	
 	}
