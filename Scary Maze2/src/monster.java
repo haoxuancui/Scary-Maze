@@ -1,6 +1,7 @@
+import java.util.ArrayList;
+
 public class monster
 	{
-
 			public String name;
 			public String persuasion;
 			
@@ -25,5 +26,10 @@ public class monster
 			public void setPower(String power)
 				{
 					this.persuasion = power;
+				}
+			public char[] getRandomList(ArrayList<monster> list)
+				{
+					// TODO Auto-generated method stub
+					return null;
 				}
 	}

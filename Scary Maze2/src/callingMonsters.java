@@ -1,10 +1,18 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class callingMonsters
 	{
+		static ArrayList<monster> list = new ArrayList<monster>();
 		public static void main(String[] args)
 		{
-			ArrayList<monster> list = new ArrayList<monster>();
+		listOfChar();
+		callingRandomChar();
+		}
+			private static void listOfChar()
+				{
+			
 				list.add(new monster("Amish Cyborg", "Remember that barbeque we had together??"));
 				list.add(new monster("Baby Wizard", "Remember that great movie we went too??"));
 				list.add(new monster("Bigfoot", "Remember when you found me in the woods?"));
@@ -31,6 +39,33 @@ public class callingMonsters
 				list.add(new monster("Summmer", "Remember the one time I punched you for being in my room?"));
 				list.add(new monster("Archer", "Rememeber that one time I accidently shot you?"));
 				list.add(new monster("Pickle Rick", "IM PICKLE RICK!!!!!!!"));
-		}
-	}
+				}
+			private static void callingRandomChar()
+				{
+					int counter = 1;
+			        Collections.shuffle(list);
+			        for (monster m : list) {
+			        	System.out.print(counter + ") ");
+			            System.out.print("I'm " + m.getName() + " " + m.getPersuasion());
+			            counter++;
+			            System.out.println("");
+			            Scanner userInput = new Scanner(System.in);
+				        System.out.println("Can I come, I can help you get out of the maze?");
+				        String guess =userInput.nextLine();
+			            if(guess.equals("yes"))
+			            	{
+			            	System.out.println("Fun I can't wait.");
+			            	}
+			            else 
+			            	{
+			            	System.out.println("Oh okay good luck. :(");
+			            	}
+			            break;
+			        }
+				}
+		
+}
+
+
+		
 
