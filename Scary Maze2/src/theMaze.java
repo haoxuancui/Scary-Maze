@@ -4,7 +4,7 @@ public class theMaze {
 Scanner move = new Scanner(System.in);
 public static int xLocation;
 public static int yLocation;
-
+static char maze[][] = new char[20][20];
 public static void main(String[] args) {
 	startGame();
     Game_Beginning();
@@ -12,10 +12,7 @@ public static void main(String[] args) {
 }
 public static void startGame()
 {
-	class introductionStuff
-	{
-		
-	}
+	introductionStuff.getStarted();
 }
 public static void Game_Beginning(){
            System.out.println("This is your game maze:");
@@ -47,35 +44,43 @@ public static void Game_Board(){
         }
         System.out.println("|");
         
+        
     }
+}
+    
+    public static void makeMove()
+    	{
+    		xLocation = (int )(Math.random() * 20 + 1);
+    	    yLocation =(int )(Math.random()* 20 +1 );
+    	    maze[0][0] = 'R';
+            maze[xLocation][yLocation] = 'M';
     Scanner userInput = new Scanner(System.in);
     System.out.print("Enter your move (w(up)-s(down)-a(Left)-d(Right)): ");
     String guess =userInput.nextLine();
-    if (guess.equals("w"))
-    	{
-    	xLocation--;
-    	}
-    else if(guess.equals("s"))
-    	{
-    	xLocation++;
-    	}
-    else if(guess.equals("a"))
-    	{
-    	yLocation--;
-    	}
-    else if(guess.equals("d"))
-    	{
-    	yLocation++;
-    	}
-    else
-    	{
-    	
-    	}
-    
-}
-public static void makeMove(){
+    switch(guess)
+    {
+    	case "w":
+    		{
+    		xLocation--;
+    		 maze[xLocation][yLocation] = ' ';
+    		}
+    	case "s":
+    			{
+    			xLocation++;
+    			 maze[xLocation][yLocation] = ' ';
+    			}
+    	case "a":
+    			{
+    			yLocation--;
+    			 maze[xLocation][yLocation] = ' ';
+    			}
+    	case "d":
+    		{
+    			yLocation++;
+    			 maze[xLocation][yLocation] = ' ';
+    		}
+    }
 	char maze[][] = new char[20][20];
-	System.out.print("____________________");
-	System.out.println("");
+	
 	
 }}
