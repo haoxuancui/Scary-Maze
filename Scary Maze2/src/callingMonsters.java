@@ -44,13 +44,14 @@ public class callingMonsters
 				{
 					int counter = 1;
 			        Collections.shuffle(list);
-			        for (monster m : list) {
+			        for (monster m : list) 
+			        	{
 			        	System.out.print(counter + ") ");
 			            System.out.print("I'm " + m.getName() + " " + m.getPersuasion());
 			            counter++;
 			            System.out.println("");
 			            Scanner userInput = new Scanner(System.in);
-				        System.out.println("Can I come, I can help you get out of the maze?");
+				        System.out.println("Can I come? I can help you get out of the maze!!!");
 				        String guess =userInput.nextLine();
 			            if(guess.equals("yes"))
 			            	{
