@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class theMaze 
 {
 Scanner move = new Scanner(System.in);
-public static int xLocation;
-public static int yLocation;
-static char maze[][] = new char[20][20];
+static int xLocation= (int )(Math.random() * 10 + 1);;
+static int yLocation=(int )(Math.random()* 10 +1 );;
+static char maze[][] = new char[10][10];
 public static void main(String[] args) 
 	{
 	startGame();
@@ -21,7 +21,7 @@ private static void startGame()
 private static void Game_Beginning()
 	{
            System.out.println("This is your game maze:");
-    System.out.println("____________________");
+    System.out.println("__________");
 	}
 private static void Game_Board()
 {
@@ -29,20 +29,14 @@ private static void Game_Board()
     {
         for (int j = 0; j < maze.length; j++)
         {
-            double random = Math.random();
-            if (random <= .05)
-            	{
-                maze[i][j] = '_';
-                
-            	}
-            else if (random > .06 && random <= .29)
-            	{
-                maze[i][j] = '_';
-            	}
-            else
-            	{
-                maze[i][j] = ' ';
-            	}
+           if(i==1&&j==1)
+        	   {
+        		   System.out.println("_");
+        	   }
+           else if(i==1&&j==9)
+        	   {
+        		   System.out.println("|");
+        	   }
             maze[0][0] = 'R';
             maze[xLocation][yLocation] = 'M';
             System.out.print(maze[i][j]);
@@ -58,10 +52,7 @@ private static void Game_Board()
 private static void makemove()
 	{
 		int rolling = 0;
-		xLocation = (int )(Math.random() * 20 + 1);
-	    yLocation =(int )(Math.random()* 20 +1 );
-	    maze[0][0] = 'R';
-        maze[xLocation][yLocation] = 'M';
+		
 	    while(rolling==0)
 	    	{
 	    		 
