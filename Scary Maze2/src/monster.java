@@ -29,7 +29,6 @@ public class monster
 				}
 			public char[] getRandomList(ArrayList<monster> list)
 				{
-					// TODO Auto-generated method stub
 					return null;
 				}
 	}

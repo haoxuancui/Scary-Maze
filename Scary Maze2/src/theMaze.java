@@ -106,6 +106,7 @@ private static void makemove()
 	    					System.out.println("You just find rick!!!");
 	    					break;
 	    				}
+	    			
 	    		
 	    	}
 	   
