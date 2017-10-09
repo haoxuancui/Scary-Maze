@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class theMaze 
 {
 Scanner move = new Scanner(System.in);
-static int xLocation= (int )(Math.random() * 10 + 1);;
-static int yLocation=(int )(Math.random()* 10 +1 );;
+static int xLocation=9;
+static int yLocation=9;
 static char maze[][] = new char[10][10];
+static double random = Math.random();
 public static void main(String[] args) 
 	{
 	startGame();
@@ -29,18 +30,20 @@ private static void Game_Board()
     {
         for (int j = 0; j < maze.length; j++)
         {
-           if(i==1&&j==1)
-        	   {
-        		   System.out.println("_");
-        	   }
-           else if(i==1&&j==9)
-        	   {
-        		   System.out.println("|");
-        	   }
+        	
+            if (random <= .05){
+                maze[i][j] = '_';
+                
+            }
+            else if (random > .06 && random <= .29){
+                maze[i][j] = '_';
+            }
+            else{
+                maze[i][j] = ' ';
+            }
             maze[0][0] = 'R';
             maze[xLocation][yLocation] = 'M';
             System.out.print(maze[i][j]);
-            
         }
         System.out.println("|");
         
@@ -55,7 +58,8 @@ private static void makemove()
 		
 	    while(rolling==0)
 	    	{
-	    		 
+	    		
+	           
 	    	        Scanner userInput = new Scanner(System.in);
 	    	        System.out.print("Enter your move (w(up)-s(down)-a(Left)-d(Right)): ");
 	    	        String userMoves =userInput.nextLine();
@@ -64,30 +68,40 @@ private static void makemove()
 	    			{
 	    			case "w":
 	    				{
-	    				xLocation--;
-	    				 maze[xLocation][yLocation] = 'm';
-	    				 Game_Board();
+	    					if(xLocation-1<0)
+	    						{
+	    							 maze[xLocation][yLocation] = 'M';
+	    							 Game_Board();
+	    							 
+	    						}
+	    					else
+	    						{
+	    							xLocation--;
+	    		    				 maze[xLocation][yLocation] = 'M';
+	    		    				 Game_Board();
+	    						}
+	    				
 	    				 break;
 	    				}
 	    			case "s":
 	    					{
 	    					xLocation++;
-	    					 maze[xLocation][yLocation] = ' ';
-	    					 Game_Board();
+	    					 maze[xLocation][yLocation] = 'M';
+	    					 
 	    					 break;
 	    					}
 	    			case "a":
 	    					{
 	    					yLocation--;
-	    					 maze[xLocation][yLocation] = ' ';
-	    					 Game_Board();
+	    					 maze[xLocation][yLocation] = 'M';
+	    					 
 	    					 break;
 	    					}
 	    			case "d":
 	    				{
 	    					yLocation++;
-	    					 maze[xLocation][yLocation] = ' ';
-	    					 Game_Board();
+	    					 maze[xLocation][yLocation] = 'M';
+	    					
 	    					 break;
 	    				}
 	    			}
