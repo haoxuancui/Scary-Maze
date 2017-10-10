@@ -13,7 +13,10 @@ public static void main(String[] args)
     Game_Beginning();
     Game_Board();
     makemove();
+    mortymove();
 	}
+
+
 
 private static void startGame()
 	{
@@ -30,8 +33,9 @@ private static void Game_Board()
     {
         for (int j = 0; j < maze.length; j++)
         {
-        	
-            if (random <= .05){
+        	double random = Math.random();
+            if (random <= .05)
+            {
                 maze[i][j] = '_';
                 
             }
@@ -51,6 +55,10 @@ private static void Game_Board()
     }
     
 }
+private static void mortymove()
+	{
+		
+	}
 
 private static void makemove()
 	{
@@ -58,9 +66,7 @@ private static void makemove()
 		
 	    while(rolling==0)
 	    	{
-	    		
-	           
-	    	        Scanner userInput = new Scanner(System.in);
+	    			Scanner userInput = new Scanner(System.in);
 	    	        System.out.print("Enter your move (w(up)-s(down)-a(Left)-d(Right)): ");
 	    	        String userMoves =userInput.nextLine();
 
@@ -87,6 +93,7 @@ private static void makemove()
 	    					{
 	    					xLocation++;
 	    					 maze[xLocation][yLocation] = 'M';
+	    					 Game_Board();
 	    					 
 	    					 break;
 	    					}
@@ -94,6 +101,7 @@ private static void makemove()
 	    					{
 	    					yLocation--;
 	    					 maze[xLocation][yLocation] = 'M';
+	    					 Game_Board();
 	    					 
 	    					 break;
 	    					}
@@ -101,6 +109,7 @@ private static void makemove()
 	    				{
 	    					yLocation++;
 	    					 maze[xLocation][yLocation] = 'M';
+	    					 Game_Board();
 	    					
 	    					 break;
 	    				}
@@ -109,6 +118,7 @@ private static void makemove()
 	    				{
 	    					rolling=1;
 	    					System.out.println("You just find rick!!!");
+	    					Game_Board();
 	    					break;
 	    				}
 	    			
